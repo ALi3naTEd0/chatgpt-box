@@ -1,7 +1,3 @@
-Perfecto. Te lo dejo **listo como README.md**, estructurado y redactado para GitHub, sin referencias personales y con tono técnico claro. Puedes copiarlo tal cual.
-
----
-
 # ChatGPT Desktop Overlay for Hyprland (Wayland)
 
 This project provides a **ChatGPT Desktop–like experience on Arch Linux** using **Hyprland + Wayland**, replicating the behavior of the official ChatGPT desktop apps on macOS/Windows:
