@@ -90,16 +90,19 @@ Edit your Hyprland configuration:
 nano ~/.config/hypr/hyprland.conf
 ```
 
-Add the following rules:
+
+Add the following rules (note: the class name is detected from `hyprctl clients` and may change if you use a different browser or Chromium version):
 
 ```conf
-windowrulev2 = float,class:^(chatgpt)$
-windowrulev2 = size 480 640,class:^(chatgpt)$
-windowrulev2 = center,class:^(chatgpt)$
-windowrulev2 = noborder,class:^(chatgpt)$
-windowrulev2 = stayfocused,class:^(chatgpt)$
-windowrulev2 = pin,class:^(chatgpt)$
+windowrulev2 = float,class:^(chrome-chat.openai.com__-Default)$
+windowrulev2 = size 480 640,class:^(chrome-chat.openai.com__-Default)$
+windowrulev2 = center,class:^(chrome-chat.openai.com__-Default)$
+windowrulev2 = noborder,class:^(chrome-chat.openai.com__-Default)$
+windowrulev2 = stayfocused,class:^(chrome-chat.openai.com__-Default)$
+windowrulev2 = pin,class:^(chrome-chat.openai.com__-Default)$
 ```
+
+> **Tip:** Si cambias el parámetro `--class` en el script, revisa el valor real con `hyprctl clients` y ajusta las reglas según corresponda.
 
 ### Result
 
@@ -112,9 +115,10 @@ The user can still manually tile it using Hyprland’s `togglefloating` binding.
 
 ---
 
+
 ## Step 3 — Global Shortcut (Alt + Space)
 
-In the same `hyprland.conf` file:
+In the same `hyprland.conf` or `userpref.conf` file:
 
 ```conf
 bind = ALT, Space, exec, ~/.local/bin/chatgpt-box
@@ -128,24 +132,27 @@ hyprctl reload
 
 ---
 
+
 ## Step 4 — Close with Escape (Optional but Recommended)
 
 To match Spotlight / ChatGPT Desktop behavior:
 
 ```conf
-bind = , Escape, exec, hyprctl dispatch closewindow class:chatgpt
+bind = , Escape, exec, hyprctl dispatch closewindow class:chrome-chat.openai.com__-Default
 ```
 
 ---
 
+
 ## Final User Experience
 
-* **Alt + Space** → ChatGPT overlay appears
+* **Alt + Space** → ChatGPT overlay appears (flotante, centrado, tamaño fijo)
 * Immediate typing focus
 * **Escape** → window closes
 * No browser chrome
 * No Electron
 * No interference with normal workflow
+* No background process required: the app only corre cuando la necesitas, igual que la original
 
 In practice, this feels **equal to or better than the official ChatGPT desktop app**.
 
